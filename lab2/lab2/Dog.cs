@@ -1,26 +1,38 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IDog.cs" company="lkj">
-//   lkj
+// <copyright file="Dog.cs" company="gg">
+//   ll
 // </copyright>
 // <summary>
-//   Defines the IDog type.
+//   The dog.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using System;
 
 namespace Lab2
 {
     /// <summary>
-    /// The Dog interface.
+    /// The dog.
     /// </summary>
-    [AlternativeName(Name = "iwof")]
-    public interface IDog
+    [AlternativeName(Name = "wof")]
+    public class Dog : IDog
     {
         /// <summary>
-        /// Gets or sets a value indicating whether wofing.
+        /// sleep or awake
+        /// </summary>
+        public bool IsSleeping { get; set; }
+        
+        /// <summary>
+        /// The wofing.
         /// </summary>
         /// <returns>
         /// The <see cref="bool"/>.
         /// </returns>
-        bool Wofing();
+        /// <exception cref="NotImplementedException">
+        /// </exception>
+        public bool Wofing()
+        {
+            return true;
+        }
     }
 }

@@ -7,7 +7,7 @@
     <ProjectGuid>{21E87E4B-D754-47B6-904D-291226AFB517}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>lab2</RootNamespace>
+    <RootNamespace>Lab2</RootNamespace>
     <AssemblyName>lab2</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACat.cs" />
+    <Compile Include="AlternativeName.cs" />
+    <Compile Include="Cat.cs" />
+    <Compile Include="CatDog.cs" />
+    <Compile Include="Dog.cs" />
+    <Compile Include="IDog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

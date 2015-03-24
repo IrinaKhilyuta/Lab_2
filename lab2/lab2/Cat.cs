@@ -1,24 +1,23 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AlternativeName.cs" company="ss">
-//   ss
+// <copyright file="Cat.cs" company="ll">
+//   ll
 // </copyright>
 // <summary>
-//   Defines the AlternativeName type.
+//   The cat.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-using System;
 
 namespace Lab2
 {
     /// <summary>
-    /// The alternative name of class.
+    /// The cat.
     /// </summary>
-    [AlternativeName(Name = "animal's sound")]
-    public class AlternativeName : Attribute
+    [AlternativeName(Name = "meow")]
+    public class Cat : ACat
     {
         /// <summary>
-        /// Gets or sets the alternative name.
+        /// sleep or awake
         /// </summary>
-        public string Name { get; set; }
+        public bool IsSleeping { get; set; }
     }
 }
