@@ -11,8 +11,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject1CatDog
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
 
     /// <summary>
     /// The unit test 1.
@@ -26,7 +28,15 @@ namespace UnitTestProject1CatDog
         [TestMethod]
         public void TestMethodTypesInAssembly()
         {
+            var sb = new StringBuilder();
             var types = typeof(Cat).Assembly.GetTypes();
+            sb.Append(Environment.NewLine);
+            foreach (var type in types)
+            {
+                sb.Append(type.Name + Environment.NewLine);
+            }
+
+            Assert.Fail(sb.ToString());
         }
 
         /// <summary>
@@ -35,10 +45,19 @@ namespace UnitTestProject1CatDog
         [TestMethod]
         public void TestMethodListOfProps()
         {
+            var sb = new StringBuilder();
+            sb.Append(Environment.NewLine);
             foreach (var type in typeof(Cat).Assembly.GetTypes())
             {
                 var properties = type.GetProperties();
+                sb.Append(Environment.NewLine + type.Name + Environment.NewLine);
+                foreach (var propertyInfo in properties)
+                {
+                    sb.Append(propertyInfo.Name + Environment.NewLine);
+                }
             }
+
+            Assert.Fail(sb.ToString());
         }
 
         /// <summary>
@@ -47,17 +66,20 @@ namespace UnitTestProject1CatDog
         [TestMethod]
         public void TestMethodInterfaceImplemensClasses()
         {
+            var sb = new StringBuilder();
+            sb.Append(Environment.NewLine);
             var interfaceClassType = typeof(IDog);
             var classesList = new List<object> { new Cat(), new Dog(), new CatDog() };
-            var answerList = new List<object>();
             foreach (var tempObject in classesList)
             {
                 var typeInterfase = tempObject.GetType().GetInterfaces().FirstOrDefault(x => x == interfaceClassType);
                 if (typeInterfase != null)
                 {
-                    answerList.Add(typeInterfase);
+                    sb.Append(tempObject.GetType().Name + " ");
                 }
             }
+
+            Assert.Fail(sb.ToString());
         }
 
         /// <summary>
@@ -66,17 +88,20 @@ namespace UnitTestProject1CatDog
         [TestMethod]
         public void TestMethodInheritsOfAbstractClass()
         {
+            var sb = new StringBuilder();
+            sb.Append(Environment.NewLine);
             var abstractClassType = typeof(ACat);
             var classesList = new List<object> { new Cat(), new Dog(), new CatDog() };
-            var answerList = new List<object>();
             foreach (var tempObject in classesList)
             {
                 var baseType = tempObject.GetType().BaseType;
                 if (baseType != null && baseType.Name == abstractClassType.Name)
                 {
-                    answerList.Add(tempObject);
+                    sb.Append(tempObject.GetType().Name + " ");
                 }
             }
+
+            Assert.Fail(sb.ToString());
         }
     }
 }
